@@ -1,0 +1,45 @@
+Bons testes
+	//Main
+	witch's mist
+	death pits of rath
+	shriveling rot
+	rite of the raging storm
+	alliance of arms
+	goblin spymaster
+	varchild's war-riders
+	varchild, betrayer
+	acorn catapult
+	Everlasting torment
+	Open the armory
+	1 Rite of the Raging Storm
+	niv
+
+-----------------------------------------------------------------------------------------
+Para ver se tem algo duplicado
+
+//mainboard
+1 Wrath of God
+1 Vandalblast
+1 Wear // Tear
+1 Vindicate
+1 Wrath of God
+1 Vandalblast
+1 Wrath of God
+1 Vandalblast
+1 Thalia, Heretic Cathar
+1 Sphere of Safety
+
+//Board Wipe: 5
+1 Wrath of God
+1 Vandalblast
+1 Settle the Wreckage
+1 Merciless Eviction
+1 Kaya's Wrath
+1 Hour of Revelation
+1 Fumigate
+1 Damnation
+1 Wrath of God
+
+//Target Removal: 5
+1 Wear // Tear
+1 Vindicate

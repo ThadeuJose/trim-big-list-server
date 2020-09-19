@@ -1,0 +1,70 @@
+https://github.com/sequelize/express-example/tree/master/express-main-example/sequelize
+https://github.com/sequelize/express-example/blob/master/express-main-example/sequelize/models/instrument.model.js
+https://github.com/sequelize/express-example/blob/master/express-main-example/sequelize/extra-setup.js
+https://github.com/sequelize/express-example/blob/master/express-main-example/sequelize/index.js
+
+https://api.scryfall.com/cards/named?fuzzy=niv%20mizzet
+https://api.scryfall.com/cards/named?fuzzy=benthic%20infiltrator
+https://api.scryfall.com/cards/named?fuzzy=forest
+
+//Tentar colocar forest, mountain, swamp, island, plains primeiro no banco 
+
+https://sequelize.org/master/manual/assocs.html#many-to-many-relationships
+
+https://sequelize.org/master/manual/assocs.html#one-to-one-relationships
+
+https://stackoverflow.com/questions/48957191/how-do-i-orm-additional-columns-on-a-join-table-in-sequelize
+
+
+Card  X //Falta cadastrar as informações do Scryfall  
+CardID
+name 
+cmc
+type_line
+mana_cost
+isGarbage
+isStaple
+card_typeID
+
+
+card_type X
+card_typeID
+name 
+
+CardImage
+CardID
+ImageID
+nickname //Pode ser NULL 
+
+
+Image
+// salvar images_uris normal com o SET_NUMBER
+ImageID
+set 
+number
+path
+image_url
+
+Deck
+DeckID 
+Name
+CommanderID CardID 
+Description TEXT
+//Changelog so no futuro 
+
+Maindeck 
+DeckID
+CardID
+quant default = 1
+categoryName // Card Draw, Ramp, não confundir com o CardType da carta
+
+Maybeboard 
+DeckID
+CardID
+//prevPosition
+//nextPosition
+
+Garbage 
+DeckID
+CardID
+
