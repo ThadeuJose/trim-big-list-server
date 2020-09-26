@@ -2,19 +2,17 @@
 A personal project to trim a big EDH list to a Commander Deck
 
 # Next Step
-	Separar a classe db
-
-
+Inserir a carta sem duplicata com erro mesmo e depois conserta os decks
 
 # TODO
-	Tirar as imagens do repositorio
+
 	Criar um crud das cartas com o vue
 		Pelo menos o read de uma carta com imagem
-
 
 	Criar um crud dos decks
 
 	Fazer o backup do banco
+		Fazer um read all debug
 		Criar na mão um metodo de fazer fazer download de todos os dados no banco e inserir tudo no banco  
 
 	Dar uma limpa no readme
@@ -29,6 +27,7 @@ A personal project to trim a big EDH list to a Commander Deck
 
 	Instalar o postman com 20 minute email
 	Fazer um botão que reseta o banco
+	Fazer um endpoint que retorna tudo
 	Server não esta servindo para nada
 	Banco
 		Primeiro uma maneira de fazer o backup do banco

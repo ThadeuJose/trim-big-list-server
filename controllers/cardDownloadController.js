@@ -36,7 +36,7 @@ async function downloadOne(req, res) {
   const number = req.params.number;
   const url = `https://api.scryfall.com/cards/${set}/${number}`;
 
-  let response = await getScryfallImage(url, set, number);
+  let response = 'Ok';//await getScryfallImage(url, set, number);
 
   res.json(response);
 };

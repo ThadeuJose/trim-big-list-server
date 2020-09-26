@@ -10,5 +10,7 @@ router.get('/:name', controller.readByName);
 
 router.get('/', controller.readAll);
 
+router.post('/', controller.insertCard);
+
 
 module.exports = router;

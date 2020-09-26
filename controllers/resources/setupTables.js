@@ -15,6 +15,7 @@ async function setupCardTypes(sequelize) {
     await cardType.create({ id:6, name: 'Repeatable Card Draw' }),
     await cardType.create({ id:7, name: 'Board Wipe' }),
     await cardType.create({ id:8, name: 'Target Removal' }),
+    await cardType.create({ id:9, name: 'No Category' }),
   ];
   return Promise.all(response);
 }
@@ -32,7 +33,7 @@ async function setupImages(sequelize) {
   return Promise.all(response);
 }
 
-function creaBasicLand(id,name) {
+function createBasicLand(id,name) {
   return 	{ id:id, name: name, cmc:0, type_line:`Basic Land — ${name}`, mana_cost: "", cardTypeId:1}
 }
 
@@ -40,11 +41,11 @@ async function setupCards(sequelize) {
   const card = sequelize.models.card;
   const includes = { include : [sequelize.models.cardType, sequelize.models.image ]}
   const response = [
-    await card.create(creaBasicLand(1,'Plains'), includes),
-    await card.create(creaBasicLand(2,'Island'), includes),
-    await card.create(creaBasicLand(3,'Swamp'), includes),
-    await card.create(creaBasicLand(4,'Mountain'), includes),
-    await card.create(creaBasicLand(5,'Forest'), includes),
+    await card.create(createBasicLand(1,'Plains'), includes),
+    await card.create(createBasicLand(2,'Island'), includes),
+    await card.create(createBasicLand(3,'Swamp'), includes),
+    await card.create(createBasicLand(4,'Mountain'), includes),
+    await card.create(createBasicLand(5,'Forest'), includes),
   ];
   return Promise.all(response);
 }
