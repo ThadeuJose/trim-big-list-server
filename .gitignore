@@ -1,4 +1,7 @@
-# Database 
+# Images
+public/images
+
+# Database
 *.db
 
 # Logs
