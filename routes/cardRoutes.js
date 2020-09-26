@@ -3,12 +3,12 @@ let router = express.Router();
 
 let controller = require('../controllers/cardController.js');
 
-router.get('/setup', controller.setup);
 
-router.get('/:id', controller.readOne);
+router.get('/:id(\\d+)', controller.readById);
+
+router.get('/:name', controller.readByName);
 
 router.get('/', controller.readAll);
-
 
 
 module.exports = router;

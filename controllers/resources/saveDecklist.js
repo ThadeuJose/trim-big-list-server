@@ -1,4 +1,4 @@
-const db = require('../../database/db');
+const db = require('../../database');
 const getScryfallInfo = require('./scryfall').getScryfallInfo;
 
 // function saveDecklist(decklist) {

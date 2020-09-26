@@ -31,26 +31,26 @@ card_type X
 card_typeID
 name 
 
-CardImage
-CardID
-ImageID
-nickname //Pode ser NULL 
 
-
-Image
+Image X
 // salvar images_uris normal com o SET_NUMBER
 ImageID
+nickname
 set 
 number
 path
-image_url
+CardID
 
 Deck
 DeckID 
 Name
 CommanderID CardID 
+Theme TEXT
 Description TEXT
+Author Text Default =Myself
+Source: TEXT url 
 //Changelog so no futuro 
+
 
 Maindeck 
 DeckID
