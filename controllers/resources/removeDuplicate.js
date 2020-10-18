@@ -1,48 +1,61 @@
-function filterFunction(key) {
-  return key.name
-}
-
-function removeDuplicateSection(a, filterFunction) {
-  var seen = {};
-  return a.filter(function(item) {
-      var k = filterFunction(item);
-      return seen.hasOwnProperty(k) ? false : (seen[k] = true);
-  });
-}
-
-function includesObject(arr, elem, filterFunction) {
-  for (var i = 0; i < arr.length; i++) {
-    if(filterFunction(arr[i]) === filterFunction(elem)){
-      return true;
+function removeDuplicateFromSection(cards) {
+  let resp = [];
+  for (var c of cards) {
+    if(!resp.includes(c)){
+      resp.push(c);
     }
   }
-  return false;
+  return resp;
 }
 
-function removeCard(cardArray, mainboardArray) {
-  return mainboardArray.filter(a => !includesObject(cardArray, a, filterFunction));
-}
-
-function isEmpty(obj) {
-  return Object.keys(obj).length === 0;
-}
-
-function removeDuplicate(input) {
-  let mainboard = {};
-  for (var i of input) {
-    i.cards = removeDuplicateSection(i.cards, filterFunction);
-    if(i.categoryName === 'Mainboard') {
-        mainboard = i;
-    }
+function removeItem(arr, value) {
+  var index = arr.indexOf(value);
+  if (index > -1) {
+    arr.splice(index, 1);
   }
-  if(!isEmpty(mainboard)){
-    for (var i of input) {
-      if(i.categoryName !== 'Mainboard') {
-          mainboard.cards = removeCard(i.cards,mainboard.cards);
+  return arr;
+}
+
+function removeDuplicateCardsFromMainboard(cards,mainboardCards) {
+  if(mainboardCards){
+    let resp = mainboardCards;
+    for (var c of cards) {
+      if(mainboardCards.includes(c)){
+        resp = removeItem(mainboardCards,c);
       }
     }
+    return resp;
   }
-  return input;
+  return mainboardCards;
+}
+
+function thereIsMoreCategories(categories) {
+  return categories.length > 1;
+}
+
+function thereIsAMainboard(categories) {
+    return categories[0].categoryName == 'Mainboard';
+}
+
+function needToRemoveCardFromMainboard(categories) {
+  return thereIsMoreCategories(categories) && thereIsAMainboard(categories);
+}
+
+function removeDuplicate(categories) {
+  let trimList = [];
+  for (var c of categories) {
+    c.cards = removeDuplicateFromSection(c.cards);
+    trimList.push(c);
+  }
+  if(needToRemoveCardFromMainboard(trimList)){
+    let mainboard = trimList[0].cards;
+    for (var i = 1; i < trimList.length; i++) {
+      let cards = trimList[i].cards;
+      mainboard = removeDuplicateCardsFromMainboard(cards, mainboard);
+    }
+  }
+
+  return trimList;
 }
 
 module.exports.removeDuplicate = removeDuplicate;

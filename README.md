@@ -2,12 +2,31 @@
 A personal project to trim a big EDH list to a Commander Deck
 
 # Next Step
-Inserir a carta sem duplicata com erro mesmo e depois conserta os decks
+Ler o json gigante
+Fazer o endpoint que retorna uma carta válida
+	NÃO USA O FUSE POR ENQUANTO
 
 # TODO
 
+	Tem uma biblioteca bacanuda de json
+			Json Stream
+		Dar uma olhada
+		Não tentar abrir ela a não ser por codigo
+
+	https://mtgjson.com/faq/#how-do-i-access-a-card-s-imagery
+	https://mtgjson.com/api/v5/
+
+	https://mtg.gamepedia.com/Color_indicator
+	https://mtgjson.com/data-models/card/#colorIndicator
+
+
+
+----------------------------------------------------------------------------
+
 	Criar um crud das cartas com o vue
 		Pelo menos o read de uma carta com imagem
+
+
 
 	Criar um crud dos decks
 
@@ -25,7 +44,6 @@ Inserir a carta sem duplicata com erro mesmo e depois conserta os decks
 
 	https://stackoverflow.com/questions/21105748/sequelize-js-how-to-use-migrations-and-sync
 
-	Instalar o postman com 20 minute email
 	Fazer um botão que reseta o banco
 	Fazer um endpoint que retorna tudo
 	Server não esta servindo para nada

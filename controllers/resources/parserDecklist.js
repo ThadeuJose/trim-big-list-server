@@ -1,7 +1,13 @@
 function formatLine(line) {
   line = line.replace(/ {2,}/g, ' ');
   line = line.replace('\t', ' ');
-  return line.trim();
+  line = line.trim();
+  if(line){
+    if (!line.match(/^\d/)) {
+     line = `1 ${line}`
+    }
+  }  
+  return line;
 }
 
 function getTitle(item) {
