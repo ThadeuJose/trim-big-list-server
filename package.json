@@ -14,6 +14,7 @@
     "mocha": "^8.1.3",
     "morgan": "~1.9.1",
     "sequelize": "^6.3.5",
+    "sequelize-auto": "^0.6.4",
     "sqlite3": "^5.0.0"
   },
   "devDependencies": {

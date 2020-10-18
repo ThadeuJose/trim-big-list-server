@@ -2,16 +2,10 @@
 A personal project to trim a big EDH list to a Commander Deck
 
 # Next Step
-Ler o json gigante
 Fazer o endpoint que retorna uma carta válida
-	NÃO USA O FUSE POR ENQUANTO
+	NÃO USAr O FUSE POR ENQUANTO
 
 # TODO
-
-	Tem uma biblioteca bacanuda de json
-			Json Stream
-		Dar uma olhada
-		Não tentar abrir ela a não ser por codigo
 
 	https://mtgjson.com/faq/#how-do-i-access-a-card-s-imagery
 	https://mtgjson.com/api/v5/
@@ -19,14 +13,26 @@ Fazer o endpoint que retorna uma carta válida
 	https://mtg.gamepedia.com/Color_indicator
 	https://mtgjson.com/data-models/card/#colorIndicator
 
+	Colocar o maybeboard no Remove Duplicate
+		Só colocar maybeboard depois de mainboard
+		As cartas do maybeboard tem que sair de tudo
+		Testar e fazer
 
+	Pegar por like nome e uuid
+		Ver os atributos da outra database para retornar
+
+	Colocar o uuid na outra database
+
+	Ver o lance do cardtype não entrando
+
+	Ver como vai ser a entrega da informações das cartas 
+
+	Limpar isso aqui
 
 ----------------------------------------------------------------------------
 
 	Criar um crud das cartas com o vue
 		Pelo menos o read de uma carta com imagem
-
-
 
 	Criar um crud dos decks
 
@@ -91,3 +97,11 @@ Fazer o endpoint que retorna uma carta válida
 	Separar a classe db
 
 	Consertar os import (parserDecklist, scryfall ... )
+
+	Colocar os AllPrintings em uma pasta so para eles
+
+# Source
+
+		Create Sequelize Models from file https://github.com/sequelize/sequelize-auto
+
+		Source of AllPrintings https://mtgjson.com/
