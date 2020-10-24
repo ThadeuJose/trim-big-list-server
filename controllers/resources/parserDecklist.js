@@ -6,7 +6,7 @@ function formatLine(line) {
     if (!line.match(/^\d/)) {
      line = `1 ${line}`
     }
-  }  
+  }
   return line;
 }
 
@@ -15,7 +15,7 @@ function getTitle(item) {
 }
 
 function getMaxQuantity(item) {
-  return item.substring(item.lastIndexOf(':') + 1).trim();
+  return parseInt(item.substring(item.lastIndexOf(':') + 1).trim());
 }
 
 function parseSections(section) {
@@ -42,18 +42,53 @@ function parseSections(section) {
   return { categoryName, maxQuantity, cards };
 }
 
+function isEmptySection(item) {
+  return item.cards.length === 0;
+}
+
+function createEmptySection() {
+  return { categoryName: '', maxQuantity: -1, cards:[] };
+}
+
+function concatMainboard(sections) {
+  let mainboard = createEmptySection();
+  let resp =[];
+
+  for (var s of sections) {
+    if(s.categoryName === 'Mainboard'){
+      if(isEmptySection(mainboard)){
+        mainboard = s;
+      }else{
+        let cards = mainboard.cards;
+        mainboard.cards = [ ...cards, ...s.cards];
+      }
+    }else {
+      resp.push(s);
+    }
+  }
+
+  if(!isEmptySection(mainboard)){
+    return [ mainboard, ...resp ];
+  }
+
+  return resp;
+}
+
 function parserDecklist(input) {
   const sections = input.split('\n\n');
-  const merged = [];
 
-  return sections.map((item, idx) => {
-    const response = parseSections(item);
-    if (!response.categoryName) {
-      response.categoryName =  'Mainboard';
-      response.maxQuantity = -1;
-    }
-    return response;
-  });
+  const resp = sections
+      .map(parseSections)
+      .filter(i => !isEmptySection(i))
+      .map((item) => {
+        if (!item.categoryName) {
+          item.categoryName =  'Mainboard';
+          item.maxQuantity = -1;
+        }
+        return item;
+      });
+
+  return concatMainboard(resp);
 }
 
 module.exports.parserDecklist = parserDecklist;

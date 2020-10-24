@@ -1,9 +1,9 @@
 const removeDuplicate = require('../controllers/resources/removeDuplicate').removeDuplicate;
 const assert = require('assert');
 describe('Remove Duplicate', function () {
-  describe('removeDuplicate', function () {
+  describe('Should remove duplicate cards', function () {
 
-    it('Should remove duplicate of a single section', function () {
+    it('of a single section', function () {
       const input = [
         {
           "categoryName": "Mainboard",
@@ -36,7 +36,7 @@ describe('Remove Duplicate', function () {
       assert.deepEqual(removeDuplicate(input), output);
     });
 
-    it('Should remove duplicate of multiple categories', function () {
+    it('of multiple categories', function () {
       const input = [
         {
           "categoryName": "Mainboard",
@@ -92,7 +92,7 @@ describe('Remove Duplicate', function () {
       assert.deepEqual(removeDuplicate(input), output);
     });
 
-    it('Should remove duplicate from the mainboard', function () {
+    it('from the Mainboard', function () {
       const input = [
         {
           "categoryName": "Mainboard",
@@ -151,7 +151,7 @@ describe('Remove Duplicate', function () {
       assert.deepEqual(removeDuplicate(input), output);
     });
 
-    it('Should remove duplicate even if there is no Mainboard', function () {
+    it('from a category even if there is no Mainboard', function () {
       const input = [
         {
           "categoryName": "Mana Ramp",
@@ -189,7 +189,7 @@ describe('Remove Duplicate', function () {
       assert.deepEqual(removeDuplicate(input), output);
     });
 
-    it('Should remove duplicate even if there is no cards in the Mainboard', function () {
+    it('from the other categories even if there is no cards in the Mainboard', function () {
       const input = [
         {
           "categoryName": "Mainboard",
@@ -237,7 +237,7 @@ describe('Remove Duplicate', function () {
       assert.deepEqual(removeDuplicate(input), output);
     });
 
-    it('Should remove duplicate even if there is no cards in the categories', function () {
+    it('from the Mainboard even if there is no cards in the other categories', function () {
       const input = [
         {
           "categoryName": "Mainboard",
@@ -287,4 +287,95 @@ describe('Remove Duplicate', function () {
     });
 
   });
+
+  describe('Maybeboard', function () {
+
+    it('Should remove cards from the other sections', function () {
+      const input = [
+        {
+          "categoryName": "Mainboard",
+          "maxQuantity": -1,
+          "cards": [
+            "1 Verge Rangers",
+            "1 Sol Ring",
+            "1 Sol Ring",
+            "1 Mana Vault",
+            "1 Arcane Signet",
+            "1 Arcane Signet",
+            "1 Arcane Signet",
+            "1 Mana Vault",
+            "1 Arcane Signet",
+            "1 Orzhov Signet",
+            "1 Orzhov Signet"
+          ]
+        },
+        {
+          "categoryName": "Maybeboard",
+          "maxQuantity": -1,
+          "cards": [
+            "1 Verge Rangers",
+            "1 Sol Ring",
+            "1 Sol Ring",
+            "1 Mana Vault",
+            "1 Arcane Signet",
+            "1 Arcane Signet",
+            "1 Arcane Signet",
+            "1 Mana Vault",
+            "1 Arcane Signet",
+            "1 Orzhov Signet",
+            "1 Orzhov Signet"
+          ]
+        },
+        {
+          "categoryName": "Mana Ramp",
+          "maxQuantity": -1,
+          "cards": [
+            "1 Solemn Simulacrum",
+            "1 Verge Rangers",
+            "1 Sol Ring",
+            "1 Sol Ring",
+            "1 Mana Vault",
+            "1 Arcane Signet",
+            "1 Arcane Signet",
+            "1 Arcane Signet",
+            "1 Mana Vault",
+            "1 Arcane Signet",
+            "1 Orzhov Signet",
+            "1 Orzhov Signet"
+          ]
+        }
+      ];
+
+      const output = [
+        {
+          "categoryName": "Mainboard",
+          "maxQuantity": -1,
+          "cards": []
+
+        },
+        {
+          "categoryName": "Maybeboard",
+          "maxQuantity": -1,
+          "cards": [
+            "1 Verge Rangers",
+            "1 Sol Ring",
+            "1 Mana Vault",
+            "1 Arcane Signet",
+            "1 Orzhov Signet"
+          ]
+        },
+        {
+          "categoryName": "Mana Ramp",
+          "maxQuantity": -1,
+          "cards": [
+            "1 Solemn Simulacrum",
+          ]
+        }
+      ];
+
+      assert.deepEqual(removeDuplicate(input), output);
+    });
+
+  });
+
 });

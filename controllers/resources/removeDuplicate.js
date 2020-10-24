@@ -29,16 +29,56 @@ function removeDuplicateCardsFromMainboard(cards,mainboardCards) {
   return mainboardCards;
 }
 
+function removeDuplicateCardsFromMaybeboard(cards, maybeboardCards) {
+  if(maybeboardCards){
+    let resp = cards;
+    for (var c of maybeboardCards) {
+      if(cards.includes(c)){
+        resp = removeItem(cards,c);
+
+      }
+    }
+    return resp;
+  }
+  return cards;
+}
+
 function thereIsMoreCategories(categories) {
   return categories.length > 1;
 }
 
 function thereIsAMainboard(categories) {
-    return categories[0].categoryName == 'Mainboard';
+    for (var c of categories) {
+      if (c.categoryName === 'Mainboard') {
+        return true;
+      }
+    }
+    return false;
+}
+
+function thereIsAMaybeboard(categories) {
+    for (var c of categories) {
+      if (c.categoryName === 'Maybeboard') {
+        return true;
+      }
+    }
+    return false;
 }
 
 function needToRemoveCardFromMainboard(categories) {
   return thereIsMoreCategories(categories) && thereIsAMainboard(categories);
+}
+
+function needToRemoveCardFromMaybeboard(categories) {
+  return thereIsMoreCategories(categories) && thereIsAMaybeboard(categories);
+}
+
+function getMainboard(categories) {
+  return categories.filter( el => el.categoryName === 'Mainboard' )[0];
+}
+
+function getMaybeboard(categories) {
+  return categories.filter( el => el.categoryName === 'Maybeboard' )[0];
 }
 
 function removeDuplicate(categories) {
@@ -47,13 +87,27 @@ function removeDuplicate(categories) {
     c.cards = removeDuplicateFromSection(c.cards);
     trimList.push(c);
   }
-  if(needToRemoveCardFromMainboard(trimList)){
-    let mainboard = trimList[0].cards;
-    for (var i = 1; i < trimList.length; i++) {
-      let cards = trimList[i].cards;
-      mainboard = removeDuplicateCardsFromMainboard(cards, mainboard);
+
+  if(needToRemoveCardFromMaybeboard(trimList)){
+    let maybeboardCards = getMaybeboard(trimList).cards;
+    for (var i = 0; i < trimList.length; i++) {
+      if(trimList[i].categoryName !== 'Maybeboard'){
+        let cards = trimList[i].cards;
+        cards = removeDuplicateCardsFromMaybeboard(cards,maybeboardCards);
+      }
     }
   }
+
+  if(needToRemoveCardFromMainboard(trimList)){
+    let mainboardCards = getMainboard(trimList).cards;
+    for (var i = 0; i < trimList.length; i++) {
+      if(trimList[i].categoryName !== 'Mainboard'){
+        let cards = trimList[i].cards;
+        mainboardCards = removeDuplicateCardsFromMainboard(cards, mainboardCards);
+      }
+    }
+  }
+
 
   return trimList;
 }

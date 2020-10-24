@@ -2,7 +2,7 @@
 A personal project to trim a big EDH list to a Commander Deck
 
 # Next Step
-Maybeboard
+Adicionar as informações no decklist
 
 
 # TODO
@@ -12,20 +12,16 @@ Maybeboard
 	https://mtg.gamepedia.com/Color_indicator
 	https://mtgjson.com/data-models/card/#colorIndicator
 
-	Maybeboard
-		Colocar o maybeboard no Remove Duplicate
-			Só colocar maybeboard depois de mainboard
-			As cartas do maybeboard tem que sair de tudo
-			Testar e fazer
 
 	Ver como vai ser a entrega da informações das cartas
+		Ajeitar a url quando enviar 
 
 	Fazer o endpoint que retorna uma carta válida?
 		NÃO USAR O FUSE POR ENQUANTO
 
 	Colocar o uuid na outra database
 
-	Ver o lance do cardtype não entrando
+	Ver o lance do cardtype não entrando na tabela
 
 	Limpar isso aqui
 
@@ -94,11 +90,15 @@ Maybeboard
 	Cache das imagens das cartas
 
 # Technical Debt
-	Separar a classe db
+	Transformar o decklist em um objeto
+		https://martinfowler.com/articles/refactoring-video-store-js/classes.html
+		Consertar o removeDuplicate
 
 	Consertar os import (parserDecklist, scryfall ... )
 
-	Colocar os AllPrintings em uma pasta so para eles
+	Colocar os AllPrintings e o production em uma pasta so para eles
+
+	https://bezkoder.com/vue-axios-file-upload/
 
 # Source
 
