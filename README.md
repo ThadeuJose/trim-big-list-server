@@ -2,30 +2,30 @@
 A personal project to trim a big EDH list to a Commander Deck
 
 # Next Step
-Fazer o endpoint que retorna uma carta válida
-	NÃO USAr O FUSE POR ENQUANTO
+Maybeboard
+
 
 # TODO
-
 	https://mtgjson.com/faq/#how-do-i-access-a-card-s-imagery
 	https://mtgjson.com/api/v5/
 
 	https://mtg.gamepedia.com/Color_indicator
 	https://mtgjson.com/data-models/card/#colorIndicator
 
-	Colocar o maybeboard no Remove Duplicate
-		Só colocar maybeboard depois de mainboard
-		As cartas do maybeboard tem que sair de tudo
-		Testar e fazer
+	Maybeboard
+		Colocar o maybeboard no Remove Duplicate
+			Só colocar maybeboard depois de mainboard
+			As cartas do maybeboard tem que sair de tudo
+			Testar e fazer
 
-	Pegar por like nome e uuid
-		Ver os atributos da outra database para retornar
+	Ver como vai ser a entrega da informações das cartas
+
+	Fazer o endpoint que retorna uma carta válida?
+		NÃO USAR O FUSE POR ENQUANTO
 
 	Colocar o uuid na outra database
 
 	Ver o lance do cardtype não entrando
-
-	Ver como vai ser a entrega da informações das cartas 
 
 	Limpar isso aqui
 
@@ -101,6 +101,8 @@ Fazer o endpoint que retorna uma carta válida
 	Colocar os AllPrintings em uma pasta so para eles
 
 # Source
+
+		Chai-as-promised https://github.com/domenic/chai-as-promised/blob/master/test/should-eventually.js
 
 		Create Sequelize Models from file https://github.com/sequelize/sequelize-auto
 
