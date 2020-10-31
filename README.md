@@ -13,11 +13,7 @@ Adicionar as informações no decklist
 	https://mtgjson.com/data-models/card/#colorIndicator
 
 
-	Ver como vai ser a entrega da informações das cartas
-		Ajeitar a url quando enviar 
-
-	Fazer o endpoint que retorna uma carta válida?
-		NÃO USAR O FUSE POR ENQUANTO
+	Mexer no 	front
 
 	Colocar o uuid na outra database
 
@@ -25,7 +21,12 @@ Adicionar as informações no decklist
 
 	Limpar isso aqui
 
+	Mandar o file para o front
+
 ----------------------------------------------------------------------------
+
+	Fazer o endpoint que retorna uma carta válida?
+		NÃO USAR O FUSE POR ENQUANTO
 
 	Criar um crud das cartas com o vue
 		Pelo menos o read de uma carta com imagem
@@ -99,6 +100,15 @@ Adicionar as informações no decklist
 	Colocar os AllPrintings e o production em uma pasta so para eles
 
 	https://bezkoder.com/vue-axios-file-upload/
+
+	Dar um upgrade nos testes
+
+	Tirar essa lambança
+		let arrayOfPromises = addCardInfoToDecklist(deDuplicateDecklist);
+		Promise.all(arrayOfPromises).then((finalDecklist) => {
+			console.log(finalDecklist);
+			res.json(finalDecklist);  
+		});
 
 # Source
 

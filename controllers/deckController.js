@@ -1,8 +1,7 @@
 const parserDecklist = require('./resources/parserDecklist').parserDecklist;
-// const saveDecklist = require('./resources/saveDecklist').saveDecklist;
 const orderDecklist = require('./resources/orderDecklist').orderDecklist;
 const removeDuplicate = require('./resources/removeDuplicate').removeDuplicate;
-const findByName = require('../AllCards/readDatabase').findByName;
+const { addCardInfoToDecklist } = require('./resources/addCardInfoToDecklist');
 
 function insert(req, res) {
 
@@ -10,18 +9,14 @@ function insert(req, res) {
 
   let parsedDecklist = parserDecklist(decklist);
   let orderedDecklist = orderDecklist(parsedDecklist);
-  let finalDecklist = removeDuplicate(orderedDecklist);
+  let deDuplicateDecklist = removeDuplicate(orderedDecklist);
+  let arrayOfPromises = addCardInfoToDecklist(deDuplicateDecklist);
+  Promise.all(arrayOfPromises).then((finalDecklist) => {
+    console.log(finalDecklist);
+    res.json(finalDecklist);  
+  });
 
-  findByName('Dark Ritual').then((data) => {
-    console.log(data);
-  })
 
-  // console.log(parsedDecklist);
-  // Promise.all(saveDecklist(parsedDecklist)).then((response) => {
-  //     res.json(removeDuplicate(response));
-  // })
-
-  res.json(finalDecklist);
 
 };
 
