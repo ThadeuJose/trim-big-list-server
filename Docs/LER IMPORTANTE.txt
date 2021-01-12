@@ -1,0 +1,4 @@
+Tirar essa pasta daqui e colocar la 
+Fundir o doc com o readme do client
+Colocar a imagem junto com a database
+Fazer uma lista garbage onde você colocou as cartas que você achou boa

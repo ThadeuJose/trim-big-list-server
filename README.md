@@ -6,14 +6,25 @@ Adicionar as informações no decklist
 
 
 # TODO
+
+	Deletar tudo e começar de novo com tdd 
+	
+	Fazer um readme para tudo 
+		Fundir doc + 2 readme 
+		
+	Usar o fuse ou algo parecido eventualmente
+		https://fusejs.io/getting-started/installation.html
+		
+	
+
+
 	https://mtgjson.com/faq/#how-do-i-access-a-card-s-imagery
 	https://mtgjson.com/api/v5/
 
 	https://mtg.gamepedia.com/Color_indicator
 	https://mtgjson.com/data-models/card/#colorIndicator
 
-
-	Mexer no 	front
+	Mexer no front
 
 	Colocar o uuid na outra database
 
@@ -21,8 +32,13 @@ Adicionar as informações no decklist
 
 	Limpar isso aqui
 
-	Mandar o file para o front
-
+	Fazer a funçao de export para o front
+		Exportar normal (com // e tal) ainda tirando as duplicatas 
+		Exportar sem o titulo e com os commanders no sideboard
+		Exportar com as lands favoritas 
+		
+	Code coverage 
+		https://istanbul.js.org/docs/tutorials/mocha/
 ----------------------------------------------------------------------------
 
 	Fazer o endpoint que retorna uma carta válida?
